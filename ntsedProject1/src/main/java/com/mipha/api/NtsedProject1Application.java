@@ -10,6 +10,7 @@ public class NtsedProject1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NtsedProject1Application.class, args);
+	
 	}
 
 }
