@@ -1,0 +1,110 @@
+body {
+    background-color: #1a1a1a;  /* Dark background */
+    color: #f5f5f5; /* Light text */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Font */
+    padding-top: 150px;
+}
+
+#inputButtonContainer {
+    width: 500px;
+    margin: auto;
+}
+
+#inputContainer {
+    margin-bottom: 20px;
+}
+
+#inputGroupLeft div {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #444; /* Darker border */
+    border-radius: 5px;  /* Border roundness */
+    background-color: #444; /* Dark input background */
+    color: #f5f5f5; /* Light text */
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#radioContainer {
+    margin-bottom: 20px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+#buttonContainer {
+    text-align: center;
+}
+
+#registBtn,#goBackBtn {
+    padding: 10px 20px;
+    border: 2px solid #888; /* Lighter border */
+    border-radius: 5px;
+    background-color: #444; /* Dark button background */
+    color: #f5f5f5; /* Light text color */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3); /* Box shadow effect */
+}
+
+#registBtn:hover,#goBackBtn:hover {
+    background-color: #555; /* Lighten the button color when hovering */
+    border-color: #bbb; /* Lighter border when hovering */
+}
+
+input[type="date"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #444; /* Darker border */
+    border-radius: 5px;  /* Border roundness */
+    background-color: #444; /* Dark input background */
+    color: #f5f5f5; /* Light text */
+    transition: all 0.3s ease;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#selectContainer {
+
+    margin-top: 25px;
+    width: 30%;
+}
+
+#selectContainer select {
+    padding: 10px;
+    border: 2px solid #444; /* Darker border */
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    font-size: 16px;
+    color: #f5f5f5; /* Light text */
+    background-color: #444; /* Dark input background */
+    transition: all 0.3s ease;
+}
+
+#selectContainer select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+
+.error-message {
+    color: #FF0000; /* ñæÇÈÇ¢ê‘êF */
+    font-weight: bold; /* ï∂éöÇëæÇ≠Ç∑ÇÈ */
+}
+

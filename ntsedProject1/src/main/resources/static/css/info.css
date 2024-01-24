@@ -1,0 +1,254 @@
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: #1a1a1a; /* Dark background */
+	color: #f5f5f5; /* Light text */
+}
+
+form {
+	width: 90%;
+	margin: auto;
+	margin-left: 150px;
+}
+
+#inputButtonContainer {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+#inputContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+#inputContainer div {
+	display: flex;
+	flex-direction: column;
+}
+
+#inputContainer label {
+	margin: 0 10px;
+	font-size: 20px;
+	color: #f5f5f5; /* Light text */
+}
+
+#inputContainer input {
+	margin: 0 10px;
+	padding: 10px;
+	border: 2px solid #444; /* Darker border */
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	width: 100%; /* Adjust as needed */
+	transition: all 0.3s ease;
+	/* Change these for different font styles */
+	font-size: 16px;
+	color: #f5f5f5; /* Light text */
+	background-color: #444; /* Dark input background */
+}
+
+#inputContainer input:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#inputGroupLeft, #inputGroupRight {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+#inputGroupRight {
+	margin-left: 100px;
+}
+
+#selectContainer {
+	margin-left: 100px; /* Adjust as necessary */
+	margin-top: 25px;
+	width: 30%;
+}
+
+#selectContainer select {
+	padding: 10px;
+	border: 2px solid #444; /* Darker border */
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	font-size: 16px;
+	color: #f5f5f5; /* Light text */
+	background-color: #444; /* Dark input background */
+	transition: all 0.3s ease;
+}
+
+#selectContainer select:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#buttonContainer {
+	margin-right: 150px;
+}
+
+#buttonContainer button {
+
+	padding: 10px 20px;
+	border: 2px solid #888; /* Lighter border */
+	border-radius: 5px;
+	background-color: #444; /* Dark button background */
+	color: #f5f5f5; /* Light text color */
+	font-size: 1.25em; /* Larger text */
+	transition: all 0.3s ease; /* Smooth transition for hover effects */
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Box shadow effect */
+	text-align: center;
+	cursor: pointer;
+}
+
+#buttonContainer button:hover {
+	background-color: #555; /* Lighten the button color when hovering */
+	border-color: #bbb; /* Lighter border when hovering */
+}
+
+#tableContainer {
+	width: 90%;
+	overflow-y: auto;
+	height: 700px;
+	margin-top: 5px;
+	margin-left: 60px;
+}
+
+#mainTable {
+	width: 100%;
+	border-collapse: separate;
+	border: 2px solid #444; /* Darker border */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background-color: #2a2a2a; /* Dark table background */
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#mainTable th, #mainTable td {
+	padding: 20px;
+	border: 1px solid #444; /* Darker border */
+}
+
+#mainTable th {
+	background: linear-gradient(to top right, #3c3c3c 0%, #5c5c5c 100%);
+	/* Dark gradient */
+	color: #f5f5f5; /* Light text */
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#mainTable td {
+	text-align: left;
+}
+
+#mainTable tbody tr:nth-of-type(even) {
+	background-color: #3c3c3c; /* Darker row background */
+}
+
+#mainTable tbody tr:hover {
+	background-color: #5c5c5c; /* Lighten row on hover */
+	transition: all .3s ease;
+}
+
+.col-id {
+	width: 19%;
+}
+
+.col-name {
+	width: 13%;
+}
+
+.col-gender {
+	width: 8%;
+}
+
+.col-dep {
+	width: 13.5%;
+}
+
+.col-phone {
+	width: 16%;
+}
+
+.col-email {
+	width: 30.5%;
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #bdc3c7;
+	border-radius: 4px;
+	outline: none;
+	transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+	background-color: #3498db;
+	border-color: #3498db;
+	color: #fff;
+}
+
+input[type="checkbox"]:hover {
+	background-color: #f2f2f2;
+	border-color: #95a5a6;
+	box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+}
+
+input[type="checkbox"]:checked::before {
+	content: "\2713";
+	font-size: 14px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center;
+	position: relative;
+	top: -2px;
+}
+
+a {
+	color: #00FFFF;
+	transition: color 0.3s ease; /* colorプロパティに対するトランジションを設定 */
+}
+
+a:hover {
+	color: #809cff; /* マウスを乗せたときの色 */
+}
+
+#pagination {
+	margin-left: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#indexButtons button {
+	padding: 7px 15px;
+	color: white;
+	background-color: #2a2a2a;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+button#active {
+    background-color: #5c5c5c;/* 例: ブルー色 */
+}
+
+#indexButtons button:hover {
+	background-color: #5c5c5c; /* Lighten row on hover */
+	
+}

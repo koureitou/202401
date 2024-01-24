@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mipha.api.mapper.EmployeeMapper">
+
+	<resultMap type="com.mipha.api.entity.Employee" id="EmpMap">
+		<id column="emp_id" property="empId"></id>
+		<result column="emp_name" property="empName"></result>
+		<result column="department_id" property="departmentId"></result>
+		<result column="gender_id" property="genderId"></result>
+		<result column="del_flg" property="delFlg"></result>
+		<result column="gender_name" property="genderName"></result>
+		<result column="department_name" property="departmentName"></result>
+		<result column="start_date" property="startDate"></result>
+		<result column="create_user" property="createUser"></result>
+		<result column="create_date" property="createDate"></result>
+		<result column="update_user" property="updateUser"></result>
+		<result column="update_date" property="updateDate"></result>
+	</resultMap>
+
+	<insert id="insert">
+		INSERT INTO t_employee (
+		emp_name,password,gender_id,department_id,start_date,
+		email,create_user,update_user
+		) VALUES (
+		#{empName},#{password},#{genderId},#{departmentId},#{startDate},
+		#{email},#{createUser},#{updateUser}
+		)
+	</insert>
+	
+	<update id="update">
+	  UPDATE t_employee SET
+	  emp_name = #{empName}, start_date = #{startDate}, gender_id = #{genderId}, 
+	  department_id = #{departmentId}, email = #{email},update_date = sysdate()
+	  WHERE emp_id = #{empId} AND del_flg = 0
+	</update>
+
+	<update id="delete" parameterType="java.util.List">
+		UPDATE t_employee SET del_flg = 1 WHERE emp_id IN
+		<foreach collection="list" item="empId" open="(" separator="," close=")">
+			#{empId}
+		</foreach>
+	</update>
+	
+	<update id="reset">
+		UPDATE t_employee SET del_flg = 0
+	</update>
+	
+	
+	<select id="getMaxId" resultType="java.lang.Integer">
+	 	SELECT MAX(emp_id)+1 FROM t_employee
+	</select>
+	
+	<select id="findByEmpId" resultMap="EmpMap">
+		SELECT * FROM t_employee WHERE emp_id = #{empId} AND del_flg = 0
+	</select>
+
+
+	<select id="findByName" resultMap="EmpMap">
+		SELECT * FROM t_employee WHERE emp_name = #{empName} AND del_flg = 0
+	</select>
+
+	<select id="getAll" resultMap="EmpMap">
+		SELECT t1.*, t2.code_name as
+		gender_name,t3.code_name as department_name
+		FROM t_employee t1
+		LEFT JOIN m_code t2 ON t1.gender_id = t2.code_id AND t2.code_kbn = 'A01'
+		LEFT JOIN m_code t3 ON t1.department_id = t3.code_id AND t3.code_kbn = 'A02'
+		WHERE t1.del_flg = 0
+
+	</select>
+
+	<select id="search" resultMap="EmpMap">
+		SELECT t1.*, t2.code_name as gender_name,t3.code_name as
+		department_name
+		FROM t_employee t1
+		LEFT JOIN m_code t2 ON t1.gender_id = t2.code_id AND t2.code_kbn = 'A01'
+		LEFT JOIN m_code t3 ON t1.department_id = t3.code_id AND t3.code_kbn = 'A02'
+		<where>
+			t1.del_flg = 0
+			<if test="empId != null and empId != ''">
+				AND t1.emp_id = #{empId}
+			</if>
+			<if test="empName != null and empName != ''">
+				AND t1.emp_name LIKE CONCAT('%', #{empName}, '%')
+			</if>
+
+			<if test="genderId != null and genderId != 100">
+				AND t1.gender_id = #{genderId}
+			</if>
+
+			<if test="deptId != null and deptId != 100">
+				AND t1.department_id = #{deptId}
+			</if>
+			
+			<choose>
+				<when test="leftDate !=null and leftDate !='' and rightDate !=null and rightDate !='' and leftDate &lt;= rightDate">
+					AND t1.start_date BETWEEN #{leftDate} AND #{rightDate}
+				</when>
+				<when test="leftDate !=null and leftDate !='' and rightDate !=null and rightDate !='' and leftDate &gt;= rightDate">
+					AND t1.start_date BETWEEN #{rightDate} AND #{leftDate}
+				</when>
+				<when test="leftDate !=null and leftDate !=''">
+					AND t1.start_date &gt;= #{leftDate}
+				</when>
+				<when test="rightDate !=null and rightDate !=''">
+					AND t1.start_date &lt;= #{rightDate}
+				</when>
+			
+			</choose>
+
+
+		</where>
+
+	</select>
+
+
+</mapper>

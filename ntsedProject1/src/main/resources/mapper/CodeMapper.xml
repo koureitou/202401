@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mipha.api.mapper.CodeMapper">
+
+	<resultMap type="com.mipha.api.entity.Code" id="CodeMap">
+		<result column="code_kbn" property="codeKbn"></result>
+		<result column="code_id" property="codeId"></result>
+		<result column="code_name" property="codeName"></result>
+		<result column="del_flg" property="delFlg"></result>
+		<result column="create_user" property="createUser"></result>
+		<result column="create_date" property="createDate"></result>
+		<result column="update_user" property="updateUser"></result>
+		<result column="update_date" property="updateDate"></result>
+	</resultMap>
+
+	<select id="getByKBN" resultMap="CodeMap">
+		SELECT * FROM m_code WHERE del_flg = 0 AND code_kbn = #{codeKbn}
+	</select>
+
+</mapper>

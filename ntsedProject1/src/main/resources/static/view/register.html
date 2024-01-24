@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/register.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module" src="/js/common.js"></script>
+<script type="module" src="/js/register.js"></script>
+
+</head>
+<body>
+
+<form id="form-register">
+        <div id="inputButtonContainer">
+            <div id="inputContainer">
+                <div id="inputGroupLeft">
+               		<div>
+                        <label for="empId">社員ID:</label>
+                        <input type="text" id="empId" name="empId" readonly>
+                    </div>
+                    <div>
+                        <label for="empName">名前:</label>
+                        <span id="empNameError" style="color: red;"></span>
+                        <input type="text" id="empName" name="empName">
+                    </div>
+
+                   
+                    <div>
+                        <label for="startDate">入社年月日:</label>
+                        <span id="dateError" style="color: red;"></span>
+                        <input type="date" id="startDate" name="startDate">
+                    </div>
+                    <div>
+                        <label for="email">メールアドレス:</label>
+                        <span id="emailError" style="color: red;"></span>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    
+                                        
+                    <div id="selectContainer">
+                        <label for="deptList">所属部門:</label><br>
+                        <span id="deptError" style="color: red;"></span>
+                        <select id="deptList" name="departmentId">
+						</select>
+                    </div>
+
+                </div>
+            </div>
+            <div id="radioContainer">
+                <label>
+                    <input type="radio" id="genderM" name="genderId" value="0">男性
+                </label>
+                <label>
+                    <input type="radio" id="genderW" name="genderId" value="1">女性
+                </label>
+            </div>
+            <div id="buttonContainer">
+                <input type="button" id="registBtn">
+                <input type="button" id="goBackBtn" value="閉じる">
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

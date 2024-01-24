@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Simple Table</title>
+<link rel="stylesheet" type="text/css" href="/css/info.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module" src="/js/common.js"></script>
+<script type="module" src="/js/info.js"></script>
+
+
+</head>
+
+<body>
+	<form id="form-info">
+		<div id="inputButtonContainer">
+			<div id="inputContainer">
+				<div id="inputGroupLeft">
+					<div>
+						<label for="empId">ユーザーID:</label> <input type="text" id="empId"
+							name="empId" />
+					</div>
+					<div>
+						<label for="input3">入社日left</label> <input type="date"
+							id="leftDate" name="leftDate">
+					</div>
+				</div>
+				<div id="inputGroupRight">
+					<div>
+						<label for="input2">名前:</label> <input type="text" id="input2"
+							name="empName">
+					</div>
+					<div>
+						<label for="input4">入社日right</label> <input type="date"
+							id="rightDate" name="rightDate">
+					</div>
+				</div>
+				<div id="selectContainer">
+					<label for="gender">性別</label> <select id="genderList"
+						name="genderId"></select>
+
+				</div>
+
+				<div id="selectContainer">
+					<label for="dept">所属部門</label> <select id="deptList" name="deptId"></select>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</form>
+	<div id="pagination">
+		<div id="indexButtons"></div>
+
+		<div id="buttonContainer">
+			<button type="button" id="addButton">Add</button>
+			<button type="button" id="searchButton">Search</button>
+			<button type="button" id="deleteButton">Delete</button>
+			<button type="button" id="resetButton">reset</button>
+		</div>
+
+	</div>
+
+
+
+	<div id="tableContainer">
+
+
+		<table id="mainTable">
+
+			<thead>
+				<tr>
+					<th class="col-check">選択</th>
+					<th class="col-id">社員ID</th>
+					<th class="col-name">名前</th>
+					<th class="col-gender">性別</th>
+					<th class="col-dep">所属部門</th>
+					<th class="col-phone">入社年月日</th>
+					<th class="col-email">メールアドレス</th>
+				</tr>
+			</thead>
+
+
+			<tbody id="info-list">
+
+			</tbody>
+		</table>
+
+
+	</div>
+
+</body>
+
+</html>
